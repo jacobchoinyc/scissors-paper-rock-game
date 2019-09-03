@@ -7,13 +7,35 @@
   <body>
 <script type="text/javascript">
 //function to generate computers hand//
-function computerPlay(options)
+function computerPlay(play)
 {
-  return options[Math.floor(Math.random()*options.length)];
+  return play[Math.floor(Math.random()*play.length)];
 }
 
-const options = ['Rock', 'Paper', 'Scissors'];
-console.log(computerPlay(options));
+const play = ['rock', 'paper', 'scissors'];
+console.log(computerPlay(play));
+
+function playRound(playerSelection, computerSelection) {
+	const playerChoice = playerSelection.toLowerCase();
+
+  if ((playerChoice === 'rock' && computerSelection === 'paper') || (playerChoice
+ === 'paper' && computerSelection === 'scissors') || (playerChoice === 'scissors'
+ && computerSelection === 'rock')) {
+    return 'computer wins';
+  } else if (playerChoice === computerSelection) {
+    return 'Tie game';
+  } else if {
+    return 'Player wins';
+  }  else
+  };
+
+const playerSelection = 'rock'
+const computerSelection = computerPlay(play)
+
+console.log(playRound(playerSelection, computerSelection))
+
+
+
 </script>
   </body>
 </html>
