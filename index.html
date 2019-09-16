@@ -5,32 +5,64 @@
     <title></title>
   </head>
   <body>
+    <p>scissor paper rock shoot!!</p>
 <script type="text/javascript">
 //function to generate computers hand//
-function computerPlay(play)
+function computerPlay()
 {
+  var play = ['rock', 'paper', 'scissors'];
   return play[Math.floor(Math.random()*play.length)];
-}
+};
 
-const play = ['rock', 'paper', 'scissors'];
-console.log(computerPlay(play));
+
+console.log(computerPlay());
 
 function playRound(playerSelection, computerSelection) {
+  //helper function to change all player inputs lowercase
 	const playerChoice = playerSelection.toLowerCase();
+// resticting accepted entries
+  const allowedSelections = ["rock", "paper", "scissors"]
+// allowed selection from player
+  if (allowedSelections.indexOf(playerChoice) < 0)
+    return "Invalid selection";
+//posible outcomes for the game
+  if (playerChoice === 'rock') {
+    if (computerSelection === 'scissors') {
+      return 'You win! Rock beats scissors.';
 
-  if ((playerChoice === 'rock' && computerSelection === 'paper') || (playerChoice
- === 'paper' && computerSelection === 'scissors') || (playerChoice === 'scissors'
- && computerSelection === 'rock')) {
-    return 'computer wins';
-  } else if (playerChoice === computerSelection) {
-    return 'Tie game';
-  } else if {
-    return 'Player wins';
-  }  else
+    } else if (computerSelection === 'paper') {
+      return 'You lose! Paper beats rock.';
+
+    } else {
+    return 'Tie fuckers!'
+    }
+  }
+ if (playerChoice ===  'scissors') {
+    if (computerSelection === 'paper') {
+      return 'You win! Scissors beats paper';
+
+    } else if (computerSelection === 'rock') {
+      return 'You lose byatch! Rock breaks scissors';
+
+    } else {
+      return 'Tie hoes';
+    }
+  }
+  if (playerchoice === 'paper') {
+    if (computerSelection === 'rock') {
+      return 'You win! paper covers rock';
+
+    } else if (computerSelection === 'scissors') {
+      retun 'You lose! scissors cut paper';
+
+    } else {
+      return 'Tie game';
+      }
+    }
   };
 
-const playerSelection = 'rock'
-const computerSelection = computerPlay(play)
+const playerSelection = prompt('Enter rock, paper, or scissors')
+const computerSelection = computerPlay()
 
 console.log(playRound(playerSelection, computerSelection))
 
