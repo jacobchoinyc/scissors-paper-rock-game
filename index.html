@@ -10,67 +10,54 @@
 //function to generate computers hand//
 function computerPlay()
 {
-  var play = ['rock', 'paper', 'scissors'];
+  var play = ['r', 'p', 's'];
   return play[Math.floor(Math.random()*play.length)];
 };
 
 
+const playerSelection = prompt('pick a move');
 
-console.log(computerPlay());
-
-const playerChoice = prompt('Enter rock, paper, or scissors')
 const computerSelection = computerPlay();
 
 function playRound(playerSelection, computerSelection) {
   //helper function to change all player inputs lowercase
-	const playerChoice = playerSelection.toLowerCase();
+
 // resticting accepted entries
-  const allowedSelections = ["rock", "paper", "scissors"];
+  const allowedSelections = ["r", "p", "s"];
 // allowed selection from player
   if (allowedSelections.indexOf(playerSelection) < 0) {
     return "Invalid selection"; }
-
 //posible outcomes for the game
-  if (playerSelection === 'rock') {
-    if (computerSelection === 'scissors') {
-      return 'You win! Rock beats scissors.';
-
-    } else if (computerSelection === 'paper') {
+  if (playerSelection === 'r') {
+    if (computerSelection === 's') {
+      return 'You win! Rock beats scissor.';
+    } else if (computerSelection === 'p') {
       return 'You lose! Paper beats rock.';
-
     } else {
     return 'Tie fuckers!'
     }
   }
- if (playerSelection ===  'scissors') {
-    if (computerSelection === 'paper') {
-      return 'You win! Scissors beats paper';
-
-    } else if (computerSelection === 'rock') {
-      return 'You lose byatch! Rock breaks scissors';
-
+ if (playerSelection ===  's') {
+    if (computerSelection === 'p') {
+      return 'You win! Scissor beats paper';
+    } else if (computerSelection === 'r') {
+      return 'You lose byatch! Rock breaks scissor';
     } else {
       return 'Tie hoes';
     }
   }
-  if (playerSelection === 'paper') {
-    if (computerSelection === 'rock') {
+  if (playerSelection === 'p') {
+    if (computerSelection === 'r') {
       return 'You win! paper covers rock';
-
-    } else if (computerSelection === 'scissors') {
-      return 'You lose! scissors cut paper';
-
+    } else if (computerSelection === 's') {
+      return 'You lose! scissor cut paper';
     } else {
       return 'Tie game';
       }
     }
   };
 
-
-
 console.log(playRound(playerSelection, computerSelection));
-
-
 
 </script>
   </body>
