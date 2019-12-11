@@ -6,117 +6,99 @@
   </head>
   <body>
     <p>scissor paper rock shoot!!</p>
-<script type="text/javascript">
-//function to generate computers hand//
-
-const win = 'Round won! Ballin!';
-const lost = 'Round lost! Sucka';
-const tie = 'Draw game! Try again chump';
-let pScore = 0;
-let cpuScore = 0;
-
-
-
-function computerPlay() {
-  let play = ['r', 'p', 's'];
-  let  choice = play[Math.floor(Math.random()*play.length)];
-  return choice;
-}
-
-
-
-function playRound(playerSelection, computerSelection) {
-  //helper function to change all player inputs lowercase
-
-// resticting accepted entries
-  const allowedSelections = ["r", "p", "s"];
-// allowed selection from player
-  if (allowedSelections.indexOf(playerSelection) < 0) {
-    return "Invalid selection"; }
-//posible outcomes for the game
-  if (playerSelection === 'r') {
-    if (computerSelection === 's') {
-      return win;
-
-    } else if (computerSelection === 'p') {
-      return lost;
-
-    } else {
-    return tie;
-    }
-  }
- if (playerSelection ===  's') {
-    if (computerSelection === 'p') {
-      return win;
-
-    } else if (computerSelection === 'r') {
-      return lost;
-
-    } else {
-      return tie;
-    }
-  }
-  if (playerSelection === 'p') {
-    if (computerSelection === 'r') {
-      return win
-
-    } else if (computerSelection === 's') {
-      return lost
-
-    } else {
-      return Tie ;
+    <script type="text/javascript">
+      //function to generate computers hand//
+      const win = 'Round won! Ballin!';
+      const lost = 'Round lost! Sucka';
+      const tie = 'Draw game! Try again chump';
+      
+      let pScore = 0;
+      let cpuScore = 0;
+      
+      function computerPlay() {
+        let play = ['r', 'p', 's'];
+        let  choice = play[Math.floor(Math.random()*play.length)];
+        return choice;
       }
-    }
-  };
-
-
-  const playerSelection = prompt('pick: r, p, or s');
-  const computerSelection = computerPlay();
-
-console.log(playRound(playerSelection, computerSelection));
-
-
-    function game (playRound) {
-
-
-      console.log('You chose:' + playerSelection);
-      console.log('Overlord chose:' + computerSelection);
-      console.log(playRound(playerSelection.toLowerCase(), computerSelection));
-
-      if (playRound(playerSelection.toLowerCase(), computerSelection) === win) {
-      pScore++;
-      }
-      else if (playRound(playerSelection.toLowerCase(), computerSelection) === lost) {
-        cpuScore++;
-
-      }
-      else {
-        pScore;
-        cpuScore;
-
-      }
-
-      console.log (pScore + ':' + cpuScore);
-
-    }
-
-    let i = 0;
-    for (i; i<= 4; i++) {
-      game();
-    }
-
-    if (pScore > cpuScore) {
-        console.log('Game oveer. You Win!');
-    }
-    else if(cpuScore > pScore) {
-      console.log('Game over. Overlord lost');
-    }
-    else {
-      console.log('Game over. Draw Game..');
-    }
-
-
-
-</script>
+      
+      function playRound(playerSelection, computerSelection) {
+        //helper function to change all player inputs lowercase
+        //resticting accepted entries
+        const allowedSelections = ["r", "p", "s"];
+        
+        //allowed selection from player
+        if (allowedSelections.indexOf(playerSelection) < 0) {
+          return "Invalid selection"; 
+        }
+        
+        //posible outcomes for the game
+        if (playerSelection === 'r') {
+          if (computerSelection === 's') {
+            return win;
+          } else if (computerSelection === 'p') {
+            return lost;
+          } else {
+          return tie;
+          }
+        }
+        
+        if (playerSelection ===  's') {
+          if (computerSelection === 'p') {
+            return win;
+          } else if (computerSelection === 'r') {
+            return lost;
+          } else {
+            return tie;
+          }
+        }
+        
+        if (playerSelection === 'p') {
+          if (computerSelection === 'r') {
+            return win
+          } else if (computerSelection === 's') {
+            return lost
+          } else {
+            return Tie ;
+            }
+          }
+        };
+      
+        const playerSelection = prompt('pick: r, p, or s');
+        const computerSelection = computerPlay();
+      
+        console.log(playRound(playerSelection, computerSelection));
+      
+        function game (playRound) {
+          
+          console.log('You chose:' + playerSelection);
+          console.log('Overlord chose:' + computerSelection);
+          console.log(playRound(playerSelection.toLowerCase(), computerSelection));
+          
+          if (playRound(playerSelection.toLowerCase(), computerSelection) === win) {
+          pScore++;
+          }
+          else if (playRound(playerSelection.toLowerCase(), computerSelection) === lost) {
+            cpuScore++;
+          }
+          else {
+            pScore;
+            cpuScore;
+          }
+          console.log (pScore + ':' + cpuScore);
+        }
+      
+        let i = 0;
+        for (i; i<= 4; i++) {
+          game();
+        }
+      
+        if (pScore > cpuScore) {
+            console.log('Game oveer. You Win!');
+        } else if(cpuScore > pScore) {
+          console.log('Game over. Overlord lost');
+        } else {
+          console.log('Game over. Draw Game..');
+        }
+    </script>
   </body>
 </html>
