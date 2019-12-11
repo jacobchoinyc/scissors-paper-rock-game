@@ -7,20 +7,21 @@
   <body>
     <p>scissor paper rock shoot!!</p>
     <script type="text/javascript">
-      //function to generate computers hand//
-      const win = 'Round won! Ballin!';
-      const lost = 'Round lost! Sucka';
-      const tie = 'Draw game! Try again chump';
-      
-      let pScore = 0;
-      let cpuScore = 0;
-      
+      const playerSelection = prompt('pick: r, p, or s');
+      const computerSelection = computerPlay();
+		
       function computerPlay() {
         let play = ['r', 'p', 's'];
         let  choice = play[Math.floor(Math.random()*play.length)];
         return choice;
       }
-      
+      //function to generate computers hand//
+      const win = 'Round won! Ballin!';
+      const lost = 'Round lost! Sucka';
+      const tie = 'Draw game! Try again chump';
+		
+      console.log(playRound(playerSelection, computerSelection));
+
       function playRound(playerSelection, computerSelection) {
         //helper function to change all player inputs lowercase
         //resticting accepted entries
@@ -38,7 +39,7 @@
           } else if (computerSelection === 'p') {
             return lost;
           } else {
-          return tie;
+            return tie;
           }
         }
         
@@ -59,46 +60,43 @@
             return lost
           } else {
             return Tie ;
-            }
-          }
-        };
+		  }
+        }
+      };
       
-        const playerSelection = prompt('pick: r, p, or s');
-        const computerSelection = computerPlay();
-      
-        console.log(playRound(playerSelection, computerSelection));
-      
-        function game (playRound) {
-          
-          console.log('You chose:' + playerSelection);
-          console.log('Overlord chose:' + computerSelection);
-          console.log(playRound(playerSelection.toLowerCase(), computerSelection));
-          
-          if (playRound(playerSelection.toLowerCase(), computerSelection) === win) {
+	  //J: will figure this out later
+      function game (playRound) {
+        console.log('You chose:' + playerSelection);
+        console.log('Overlord chose:' + computerSelection);
+        console.log(playRound(playerSelection.toLowerCase(), computerSelection));
+
+        if (playRound(playerSelection.toLowerCase(), computerSelection) === win) {
           pScore++;
-          }
-          else if (playRound(playerSelection.toLowerCase(), computerSelection) === lost) {
-            cpuScore++;
-          }
-          else {
-            pScore;
-            cpuScore;
-          }
-          console.log (pScore + ':' + cpuScore);
         }
+        else if (playRound(playerSelection.toLowerCase(), computerSelection) === lost) {
+          cpuScore++;
+        }
+        else {
+          pScore;
+          cpuScore;
+        }
+        console.log (pScore + ':' + cpuScore);
+      }
       
-        let i = 0;
-        for (i; i<= 4; i++) {
-          game();
-        }
-      
-        if (pScore > cpuScore) {
-            console.log('Game oveer. You Win!');
-        } else if(cpuScore > pScore) {
-          console.log('Game over. Overlord lost');
-        } else {
-          console.log('Game over. Draw Game..');
-        }
+      let i = 0;
+      for (i; i<= 4; i++) {
+        game();
+      }
+
+      if (pScore > cpuScore) {
+        console.log('Game oveer. You Win!');
+      } else if(cpuScore > pScore) {
+        console.log('Game over. Overlord lost');
+      } else {
+        console.log('Game over. Draw Game..');
+      }
+      let pScore = 0;
+      let cpuScore = 0;
     </script>
   </body>
 </html>
